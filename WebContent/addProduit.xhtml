@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<title>Ajouter Produit</title>
+
+</h:head>
+
+<h:body style="background-image: url('https://i.pinimg.com/originals/5c/f2/66/5cf2660af5f4214def7166dc7a7c8062.jpg');
+color: white;">
+	<center>
+		<h2>
+			<h:outputText value="Ajouter un produit" />
+		</h2>
+	</center>
+	<center>
+		<h:form id="form">
+			<div>
+				<h:outputLabel> Catégorie </h:outputLabel>
+				<div>
+					<h:selectOneMenu value="#{ProduitBean.idc}"
+						style="width: 200px; height: 20px;">
+						<f:selectItems value="#{ProduitBean.listCategories()}" var="cat"
+							itemValue="#{cat.nomCat}" itemLabel="#{cat.nomCat}"
+							noSelectionValue="" />
+						<f:param name="idCat" value="#{param['cat.idCat']}" />
+					</h:selectOneMenu>
+				</div>
+			</div>
+			<br />
+			<div>
+				<h:outputLabel> Nom </h:outputLabel>
+				<div>
+					<h:inputText value="#{ProduitBean.nomProd}"
+						style="width: 200px; height: 20px;"></h:inputText>
+				</div>
+			</div>
+			<br />
+			<div>
+				<h:outputLabel>Quantité </h:outputLabel>
+				<div>
+					<h:inputText value="#{ProduitBean.quantiteProd}"
+						style="width: 200px; height: 20px;"></h:inputText>
+				</div>
+			</div>
+			<br />
+			<div>
+				<h:outputLabel>Prix </h:outputLabel>
+				<div>
+					<h:inputText value="#{ProduitBean.puProd}"
+						style="width: 200px; height: 20px;"></h:inputText>
+				</div>
+			</div>
+			<br />
+			<div>
+				<h:outputLabel>Description </h:outputLabel>
+				<div>
+					<h:inputText value="#{ProduitBean.descProd}"
+						style="width: 200px; height: 20px;"></h:inputText>
+				</div>
+			</div>
+			<br />
+			<div>
+				<h:commandButton value="Save"
+					action="#{ProduitBean.save(ProduitBean)}"></h:commandButton>
+			</div>
+			<br />
+			<div>
+				<h:outputLink value="listProduits.xhtml">Liste produits</h:outputLink>
+			</div>
+
+		</h:form>
+	</center>
+</h:body>
+
+</html>

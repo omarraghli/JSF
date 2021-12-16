@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<title>List produit By Cat</title>
+
+</h:head>
+<h:body style="background-image: url('https://i.pinimg.com/originals/5c/f2/66/5cf2660af5f4214def7166dc7a7c8062.jpg');
+color: white;
+">
+	<h:form>
+		<center>
+			<h2>
+				<h:outputLabel>Liste des produits de la catégorie : </h:outputLabel>
+				<h:outputText value="#{ProduitBean.getIdCat(param['idCat'])}"></h:outputText>
+			</h2>
+		</center>
+
+		<h:dataTable binding="#{table}"
+			value="#{ProduitBean.listProduitsByCat(param['idCat'])}" var="prod">
+
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{prod.idProd}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Nom</f:facet>
+				<h:outputText value="#{prod.nomProd}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Quantite</f:facet>
+				<h:outputText value="#{prod.quantiteProd}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Prix</f:facet>
+				<h:outputText value="#{prod.puProd}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Description</f:facet>
+				<h:outputText value="#{prod.descProd}" />
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+	<center>
+		<h:outputLink value="index.xhtml">Revenir à l'accueil</h:outputLink>
+	</center>
+</h:body>
+
+</html>

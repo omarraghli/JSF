@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<title>Update Cat</title>
+
+</h:head>
+<h:body style="background-image: url('https://i.pinimg.com/originals/5c/f2/66/5cf2660af5f4214def7166dc7a7c8062.jpg');
+color: white;">
+	<center>
+		<h2>
+			<h:outputText value="Update Cat" />
+		</h2>
+	</center>
+
+	<center>
+		<h:form>
+			<div>
+				<h:outputLabel>Id de la Categorie </h:outputLabel>
+				<h:outputText value="#{CategorieBean.setCategorie(param['idCat'])}" />
+			</div>
+			<br />
+			<div>
+				<h:outputLabel>Nom   </h:outputLabel>
+
+				<div>
+					<f:facet name="header">Nom</f:facet>
+					<h:inputText value="#{CategorieBean.nomCat}" style="width: 200px; height: 20px;" />
+				</div>
+			</div>
+			<br />
+				<h:outputLabel> Image </h:outputLabel>
+				<div>
+					<h:inputFile value="#{CategorieBean.img}" style="width: 200px; height: 20px;"></h:inputFile>
+				</div>
+			<br />
+			<div>
+				<h:commandButton value="update"
+					action="#{CategorieBean.update(CategorieBean)}"></h:commandButton>
+			</div>
+
+		</h:form>
+	</center>
+</h:body>
+
+</html>
